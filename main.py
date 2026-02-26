@@ -11,6 +11,8 @@ partitions = [
     ("Recovery", "/recovery", 2000, 98)
 ]
 
-total_size_mb = sum(size for label, mount, size, used in partitions)
+total_mb = 0
+for p in partitions:
+    total_mb += p[2]
 
-print(f"The script should output {total_size_mb} MB")
+print(total_mb, "MB")
